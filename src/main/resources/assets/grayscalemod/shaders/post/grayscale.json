@@ -1,13 +1,18 @@
 {
-    "targets": [],
+    "targets": [ "swap" ],
     "passes": [
         {
-            "name": "desaturate",
+            "name": "grayscalemod:grayscale",
             "intarget": "minecraft:main",
-            "outtarget": "minecraft:main",
+            "outtarget": "swap",
             "uniforms": [
-                { "name": "Saturation", "values": [ 0.0 ] }
+                { "name": "Progress", "values": [ 0.0 ] }
             ]
+        },
+        {
+            "name": "blit",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
         }
     ]
 }
