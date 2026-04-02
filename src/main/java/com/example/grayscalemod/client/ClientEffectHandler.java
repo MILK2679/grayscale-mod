@@ -1,5 +1,6 @@
 package com.example.grayscalemod.client;
 
+import com.example.grayscalemod.GrayscaleMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -12,6 +13,7 @@ public class ClientEffectHandler {
         new ResourceLocation("minecraft", "shaders/post/desaturate.json");
 
     public static void apply(boolean enable) {
+        GrayscaleMod.grayscaleActive = enable;
         Minecraft mc = Minecraft.getInstance();
         if (enable) {
             mc.gameRenderer.loadEffect(EFFECT);
