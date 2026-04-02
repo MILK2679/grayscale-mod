@@ -1,6 +1,5 @@
 package com.example.grayscalemod.client;
 
-import com.example.grayscalemod.GrayscaleMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -10,7 +9,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class ClientEffectHandler {
 
     private static final ResourceLocation EFFECT =
-        new ResourceLocation(GrayscaleMod.MODID, "shaders/post/grayscale.json");
+        new ResourceLocation("minecraft", "shaders/post/desaturate.json");
 
     public static void apply(boolean enable) {
         Minecraft mc = Minecraft.getInstance();
