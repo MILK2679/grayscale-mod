@@ -2,10 +2,11 @@
 
 uniform sampler2D DiffuseSampler;
 uniform float Progress;
-in vec2 texCoord;
+uniform vec2 OutSize;
 out vec4 fragColor;
 
 void main() {
+    vec2 texCoord = gl_FragCoord.xy / OutSize;
     vec2 center = vec2(0.5, 0.5);
     vec2 uv = texCoord - center;
     float dist = length(uv);
