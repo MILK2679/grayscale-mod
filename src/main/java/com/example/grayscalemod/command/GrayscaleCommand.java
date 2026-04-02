@@ -50,12 +50,6 @@ public class GrayscaleCommand {
             ModNetworking.CHANNEL.send(PacketDistributor.PLAYER.with(() -> target), packet);
         }
 
-        String msg = enable ? "\u00a77\u2b1b \u9ed1\u767d\u6a21\u5f0f\u5df2\u5f00\u542f" : "\u00a7f\u2b1c \u9ed1\u767d\u6a21\u5f0f\u5df2\u5173\u95ed";
-        executor.sendSystemMessage(Component.literal(msg));
-        if (!executor.getUUID().equals(target.getUUID())) {
-            target.sendSystemMessage(Component.literal(msg));
-        }
-
         return 1;
     }
 }
