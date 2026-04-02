@@ -6,6 +6,7 @@ uniform mat4 ProjMat;
 uniform vec2 OutSize;
 
 void main() {
-    gl_Position = ProjMat * Position;
+    vec4 pos = ProjMat * Position;
+    gl_Position = pos;
     texCoord = Position.xy / OutSize;
 }
