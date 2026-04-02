@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 @Mixin(GameRenderer.class)
@@ -21,7 +22,10 @@ public class GameRendererMixin {
     private void onRender(float pPartialTicks, long pNanoTime, boolean pRenderLevel, CallbackInfo ci) {
         if (postEffect == null) return;
         try {
-            List<PostPass> passes = postEffect.passes;
+            Field f = PostChain.class.getDeclaredField("passes");
+            f.setAccessible(true);
+            @SuppressWarnings("unchecked")
+            List<PostPass> passes = (List<PostPass>) f.get(postEffect);
             for (PostPass pass : passes) {
                 pass.getEffect().safeGetUniform("Progress").set(GrayscaleMod.getProgress());
             }
